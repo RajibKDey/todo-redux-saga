@@ -50,7 +50,9 @@ export default function ToDoCreate() {
   const code = useSelector((state) => state.todo.code);
 
   useEffect(() => {
-    dispatch(resetToDo());
+    if (code) {
+      dispatch(resetToDo());
+    }
   }, [code]);
 
   return (

@@ -30,7 +30,7 @@ export default function createToDoReducer(state = initialState, action) {
         ...state,
         code: false,
       };
-    case ACTION_TYPES.DELETE_TODO:
+    case ACTION_TYPES.DELETE_TODO_SUCCESS:
       return {
         ...state,
         data: action.payload.data,

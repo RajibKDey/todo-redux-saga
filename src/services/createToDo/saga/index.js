@@ -23,21 +23,19 @@ function* workCreateToDoList(action) {
 function* workDeleteToDoList(action) {
   try {
     let resultData = yield select((state) => state.todo.data);
-    console.log("data lol", resultData);
     let updatedToDo = [];
     resultData.forEach((row) => {
       if (row.id !== action.payload) {
         updatedToDo.push(row);
       }
     });
-    console.log("data", updatedToDo);
     let payload = {
       message: "Todo deleted successfully",
       success: true,
       data: updatedToDo,
     };
     yield put({
-      type: ACTION_TYPES.DELETE_TODO,
+      type: ACTION_TYPES.DELETE_TODO_SUCCESS,
       payload: payload,
     });
   } catch (err) {
